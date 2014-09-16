@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/syntax.css" />
+    <title>
+        {% if page.title %} | {{ page.title }}</title>
+        {% else %} | {{ site.name }}{% endif %}</title>
+</head>
+
+<body>
+    <div id="container">
+        <!-- blog stream sidebar -->
+        <div id="blog-stream">
+            <div id="blog-stream-header">Ryan Z. Govostes</div>
+            <div id="stream-list">
+                {% for post in site.posts %}
+                    {% include post-title-date.html %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- main content area -->
+        <div id="content">
+            <!-- article -->
+            <div id="main">
+                {{ content }}
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
