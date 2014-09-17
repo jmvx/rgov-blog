@@ -10,21 +10,27 @@
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="stylesheet" type="text/css" href="/syntax.css" />
     <title>
-        {% if page.title %} | {{ page.title }}</title>
-        {% else %} | {{ site.name }}{% endif %}</title>
+        {% if page.title %} {{ site.name }} | {{ page.title }}</title>
+        {% else %} {{ site.name }}{% endif %}</title>
 </head>
 
 <body>
     <div id="container">
         <!-- blog stream sidebar -->
+        
         <div id="blog-stream">
-            <div id="blog-stream-header">Ryan Z. Govostes</div>
-            <div id="stream-list">
-                {% for post in site.posts %}
-                    {% include post-title-date.html %}
-                {% endfor %}
-            </div>
+            {% for post in site.posts %}
+                {% include post-title-date.html %}
+            {% endfor %}
         </div>
+        
+        <div id="site-name">{{ site.name }}</div>
+        {% if page.title %}
+        <div id="page-title"><a href="{{ page.url }}">{{ page.title }}</a></div>
+        {% endif %}
+        {% if page.date %}
+        <div id="page-date">Posted on {{ page.date | date_to_long_string }}</div>
+        {% endif %}
         
         <!-- main content area -->
         <div id="content">
