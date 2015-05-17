@@ -24,13 +24,15 @@
             {% endfor %}
         </div>
         
-        <div id="site-name">{{ site.name }}</div>
-        {% if page.title %}
-        <div id="page-title"><a href="{{ page.url }}">{{ page.title }}</a></div>
-        {% endif %}
-        {% if page.date %}
-        <div id="page-date">Posted on {{ page.date | date_to_long_string }}</div>
-        {% endif %}
+        <div id="header">
+            <div id="site-name">{{ site.name }}</div>
+            {% if page.title %}
+            <div id="page-title"><a href="{{ page.url }}">{{ page.title }}</a></div>
+            {% endif %}
+            {% if page.date %}
+            <div id="page-date">Posted on {{ page.date | date_to_long_string }}</div>
+            {% endif %}
+        </div>
         
         <!-- main content area -->
         <div id="content">
