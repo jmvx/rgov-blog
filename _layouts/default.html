@@ -7,8 +7,8 @@
     {% if page.description %}
     <meta name="description" content="{{ page.description }}" />
     {% endif %}
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <link rel="stylesheet" type="text/css" href="/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/syntax.css" />
     <title>
         {% if page.title %} {{ site.name }} | {{ page.title }}</title>
         {% else %} {{ site.name }}{% endif %}</title>
@@ -27,7 +27,7 @@
         <div id="header">
             <div id="site-name">{{ site.name }}</div>
             {% if page.title %}
-            <div id="page-title"><a href="{{ page.url }}">{{ page.title }}</a></div>
+            <div id="page-title"><a href="{{ site.baseurl }}/{{ page.url }}">{{ page.title }}</a></div>
             {% endif %}
             {% if page.date %}
             <div id="page-date">Posted on {{ page.date | date_to_long_string }}</div>
